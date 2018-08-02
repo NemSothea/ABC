@@ -14,6 +14,9 @@ class QuestionOneVC: UIViewController {
     
     var data: ExampleModel?
     
+    let dataSource = ["Reading","Listening"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        self.navigationItem.title = data?.QUESTION
@@ -35,11 +38,13 @@ class QuestionOneVC: UIViewController {
 extension QuestionOneVC: UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dataSource.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard  let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath) as? ReadingCell else { return UICollectionViewCell() }
+        guard  let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "subjectCell", for: indexPath) as? SubjectCell else { return UICollectionViewCell() }
+        
+        cell.lblReading.text = dataSource[indexPath.row]
         
         return cell
     }

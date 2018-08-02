@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ReadingCell: UICollectionViewCell {
-    
+class SubjectCell: UICollectionViewCell {
+    @IBOutlet weak var lblReading: UILabel!
 }

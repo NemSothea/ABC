@@ -14,8 +14,28 @@ class OtherVC: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     
-    var sectionTitle = [0:"Question 1 types",1:"Question 2 types",2:"Other Question types"]
-    var rowSectionTitle = [0:["You me"],1:["She me"],2:["She mine"]]
+    let dataSource = [
+        [
+            "title": "Question 1 types",
+            "arr" : [
+                ["sub" : "You me", "book" : "TOPIKSelfStudyGuideForAllTOPIKLevels"],
+                ["sub" : "Vansa", "book" : "TOPIK-IIADVANCEDLEVELGRAMMAR"]
+            ]
+        ],
+        [
+            "title": "Question 2 types",
+            "arr" : [
+                ["sub" : "She me", "book" : "TOPIK-IIADVANCEDLEVELGRAMMAR"]
+            ]
+        ],
+        [
+            "title": "Question 3 types",
+            "arr" : [
+                ["sub" : "She mine", "book" : "TOPIKSelfStudyGuideForAllTOPIKLevels"]
+            ]
+        ],
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = data?.QUESTION
@@ -27,11 +47,10 @@ class OtherVC: UIViewController {
         myTableView.delegate = self
     }
     
-    func PDFViewer(index:IndexPath) {
-        
-        let indexChange:String = index.row == 0 ? "TOPIKSelfStudyGuideForAllTOPIKLevels" : "TOPIK-IIADVANCEDLEVELGRAMMAR"
-        print(indexChange)
-        let documentFileURL = Bundle.main.url(forResource: indexChange, withExtension: "pdf")!
+    func PDFViewer(ip: IndexPath) {
+        guard let file = dataSource[ip.section]["arr"] as? Array<Dictionary<String, String>> else { return }
+        let bookTitle = file[ip.row]["book"]
+        let documentFileURL = Bundle.main.url(forResource: bookTitle, withExtension: "pdf")!
         let document = PDFDocument(url: documentFileURL)!
         let readerController = PDFViewController.createNew(with: document)
         navigationController?.pushViewController(readerController, animated: true)
@@ -43,23 +62,25 @@ class OtherVC: UIViewController {
 }
 
 extension OtherVC: UITableViewDelegate,UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return dataSource.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (rowSectionTitle[section]?.count)!
+        guard let numberSection = dataSource[section]["arr"] as? Array<Dictionary<String, String>> else { return 0 }
+        return numberSection.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell else {return UITableViewCell()}
-        cell.Lbltitle.text = rowSectionTitle[indexPath.section]?[indexPath.row]
+        guard let data = dataSource[indexPath.section]["arr"] as? Array<Dictionary<String, String>> else {return UITableViewCell()}
+        cell.Lbltitle.text = data[indexPath.row]["sub"]
         cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        
+        PDFViewer(ip: indexPath)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -68,7 +89,7 @@ extension OtherVC: UITableViewDelegate,UITableViewDataSource {
         sectionView.backgroundColor = UIColor.black
         
         let sectionName = UILabel(frame: CGRect(x: 5, y: 0, width: tableView.frame.size.width, height: 25))
-        sectionName.text = sectionTitle[section]
+        sectionName.text = dataSource[section]["title"] as? String ?? ""
         sectionName.textColor = UIColor.white
         sectionName.font = UIFont.systemFont(ofSize: 14)
         sectionName.textAlignment = .left
