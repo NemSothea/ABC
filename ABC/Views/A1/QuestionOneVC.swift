@@ -33,6 +33,19 @@ class QuestionOneVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func settingWasPressed(_ sender: UIButton) {
+        if let vc = UIStoryboard(name: "S1", bundle: nil).instantiateViewController(withIdentifier: "s1") as? S1VC {
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionPush
+            transition.subtype = kCATransitionFromRight
+            self.navigationController!.view.layer.add(transition, forKey: nil)
+            if let nav = navigationController {
+                nav.pushViewController(vc, animated: true)
+            }
+        }
+    }
 }
 
 extension QuestionOneVC: UICollectionViewDelegate,UICollectionViewDataSource {

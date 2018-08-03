@@ -12,6 +12,8 @@ class DataAccessManager {
     
     typealias completionHandler = (_ data:[ExampleModel]?, _ error: NSError?) -> ()
     
+    typealias completionHandleQuestion = (_ data:[Question_1]?,_ error: NSError?) -> ()
+    
     static let manager = DataAccessManager()
     private init(){}
     
@@ -29,5 +31,7 @@ class DataAccessManager {
             completion(nil,err)
         }
     }
+    
+    
 
 }

@@ -1,0 +1,43 @@
+{
+    "arr":{
+        "type_1": {
+            "introduce_1":"Place complete the question below:",
+            "object_1":
+            {"question_1":"Why you handsome?",
+                "option_1": "I'm gy",
+                "option_2": "I'm girl",
+                "option_3": "I'm not a man",
+                "option_4": "I'm diet.",
+                "answer_key": "4"
+            },
+            "introduce_2":"Place complete the question below:",
+            "object_2":
+            {"question_1":"How to make a girl",
+                "option_1": "Buy a machine",
+                "option_2": "buy image with image of girl",
+                "option_3": "Engage her",
+                "option_4": "try to make relationship with her.",
+                "answer_key": "3"
+            }
+            
+        },
+        "type_2": {
+            "introduce_1":"look at the image below and complete:",
+            "object_1":
+            {"image_1":"",
+                "option_1": "I'm gy",
+                "option_2": "I'm girl",
+                "option_3": "I'm not a man",
+                "option_4": "I'm diet."},
+            "introduce_2":"look at the image below and complete:",
+            "object_2":
+            {"image_2":"",
+                "option_1": "I'm gy",
+                "option_2": "I'm girl",
+                "option_3": "I'm not a man",
+                "option_4": "I'm diet."}
+        }
+        
+        
+    }
+}
