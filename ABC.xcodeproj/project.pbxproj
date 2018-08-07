@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B52059936B2257238CCE93F /* Pods_ABC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7250D7C7F0B3426B2FA254AA /* Pods_ABC.framework */; };
+		330C6B8E2119ABFA00EA1A11 /* ReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330C6B8D2119ABFA00EA1A11 /* ReadingVC.swift */; };
+		330C6B902119AC1100EA1A11 /* Reading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330C6B8F2119AC1100EA1A11 /* Reading.storyboard */; };
 		334B8D002106D90F00639674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334B8CFF2106D90F00639674 /* AppDelegate.swift */; };
 		334B8D022106D90F00639674 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334B8D012106D90F00639674 /* TestVC.swift */; };
 		334B8D052106D90F00639674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334B8D032106D90F00639674 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330C6B8D2119ABFA00EA1A11 /* ReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingVC.swift; sourceTree = "<group>"; };
+		330C6B8F2119AC1100EA1A11 /* Reading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reading.storyboard; sourceTree = "<group>"; };
 		334B8CFC2106D90F00639674 /* ABC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		334B8CFF2106D90F00639674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		334B8D012106D90F00639674 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330C6B8C2119AB7B00EA1A11 /* Reading */ = {
+			isa = PBXGroup;
+			children = (
+				330C6B8D2119ABFA00EA1A11 /* ReadingVC.swift */,
+				330C6B8F2119AC1100EA1A11 /* Reading.storyboard */,
+			);
+			path = Reading;
+			sourceTree = "<group>";
+		};
 		334B8CF32106D90F00639674 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		33CADFB62109813F000583D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				330C6B8C2119AB7B00EA1A11 /* Reading */,
 				33A7F8622113F47F00274ECB /* S1 */,
 				334D6605210AAFE000E407F0 /* O1 */,
 				334D6604210AAFD800E407F0 /* A2 */,
@@ -310,6 +324,7 @@
 				334D661D210B067C00E407F0 /* TOPIK-IIADVANCEDLEVELGRAMMAR.pdf in Resources */,
 				334D6619210AD91400E407F0 /* TOPIKSelfStudyGuideForAllTOPIKLevels.pdf in Resources */,
 				33CADFC32109D659000583D7 /* Example.json in Resources */,
+				330C6B902119AC1100EA1A11 /* Reading.storyboard in Resources */,
 				338113C52112F8AE004D295B /* question_type_1.json in Resources */,
 				334D6607210AB02900E407F0 /* A1.storyboard in Resources */,
 				334B8D0D2106D91100639674 /* LaunchScreen.storyboard in Resources */,
@@ -380,6 +395,7 @@
 				334B8D002106D90F00639674 /* AppDelegate.swift in Sources */,
 				33CADFBC21098397000583D7 /* ExampleModel.swift in Sources */,
 				334B8D152106D97B00639674 /* QuestionOneVC.swift in Sources */,
+				330C6B8E2119ABFA00EA1A11 /* ReadingVC.swift in Sources */,
 				33CADFB3210980DB000583D7 /* DataAccessManager.swift in Sources */,
 				33CADFC12109C42D000583D7 /* ExViewController.swift in Sources */,
 			);

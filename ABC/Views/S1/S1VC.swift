@@ -10,52 +10,45 @@ import UIKit
 
 class S1VC: UIViewController {
     
-    let colorView = UIView()
-    let lblCenter = UILabel()
+    let imageSlide:UIImageView = {
+        let imageIcon = UIImageView(image: #imageLiteral(resourceName: "programmer"))
+            imageIcon.translatesAutoresizingMaskIntoConstraints = false
+            imageIcon.layer.masksToBounds = true
+            imageIcon.clipsToBounds = true
+            imageIcon.layer.cornerRadius = 50.0
+            imageIcon.layer.borderWidth = 2.0
+            imageIcon.layer.borderColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        return imageIcon
+    }()
     
-    var initialConstains = [NSLayoutConstraint]()
+    let decriptionText:UITextView = {
+        let textView = UITextView()
+            textView.translatesAutoresizingMaskIntoConstraints = false
+            textView.text = "Hello Text I need you."
+        return textView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createColorView()
-        self.view.addSubview(lblCenter)
-        createLabel()
-        // Do any additional setup after loading the view.
+        view.addSubview(imageSlide)
+        view.addSubview(decriptionText)
+        setLayout()
+ 
     }
-    func createLabel() {
+  
+    private func setLayout() {
         
-        lblCenter.translatesAutoresizingMaskIntoConstraints = false
-        lblCenter.frame = CGRect(x: 0, y: 100, width: 100, height: 30)
-        lblCenter.textColor = UIColor.black
-        lblCenter.text = "I love yo😍u "
-        lblCenter.font = UIFont.systemFont(ofSize: 18)
-        NSLayoutConstraint.activate([
-            lblCenter.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lblCenter.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            lblCenter.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.7),
-            lblCenter.heightAnchor.constraint(equalToConstant: 20)
-            ])
+        imageSlide.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageSlide.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        imageSlide.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        imageSlide.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
+        decriptionText.topAnchor.constraint(equalTo: imageSlide.bottomAnchor, constant: 200).isActive = true
+        decriptionText.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        decriptionText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        decriptionText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = false
         
-    }
-    func createColorView() {
-        
-        colorView.translatesAutoresizingMaskIntoConstraints = false
-        colorView.backgroundColor = UIColor.gray
-        self.view.addSubview(colorView)
-        
-     
-        
-        
-        let leadingContraint = colorView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingConstaint = colorView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let topConstaint = colorView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        let bottomContraint = colorView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        
-        initialConstains.append(contentsOf: [leadingContraint,trailingConstaint,topConstaint,bottomContraint])
-        NSLayoutConstraint.activate(initialConstains)
-        
+      
     }
 
 
