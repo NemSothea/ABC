@@ -62,4 +62,19 @@ extension QuestionOneVC: UICollectionViewDelegate,UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            self.calledReading()
+        }
+        
+    }
+     private func calledReading() {
+        if let vc = UIStoryboard(name: "Reading", bundle: nil).instantiateViewController(withIdentifier: "reading") as? ReadingVC {
+            if let nv = navigationController {
+                nv.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
 }
