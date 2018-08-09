@@ -18,19 +18,9 @@ class ReadingCell: UITableViewCell {
     @IBOutlet weak var answerKey_4: UIButton!
     @IBOutlet weak var imgCrile: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-     
-       
-    }
-    @objc func gestureAction() {
-        if answerKey_1.isSelected {
-            imgCrile.image = UIImage(named: "list_main_check_off")
-        }else {
-            imgCrile.image = UIImage(named: "list_main_check_on")
-        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,4 +28,11 @@ class ReadingCell: UITableViewCell {
        
     }
 
+}
+class ReadingImageCell: UITableViewCell {
+    @IBOutlet weak var ImgView: UIStackView!
+    @IBOutlet weak var QuestionNumber: UILabel!
+    
+    
+    
 }

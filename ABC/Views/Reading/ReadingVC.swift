@@ -32,9 +32,7 @@ extension ReadingVC: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     
-    func selection() {
-        
-    }
+    
     
     
     
