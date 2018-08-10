@@ -32,6 +32,22 @@ class DataAccessManager {
         }
     }
     
+    func fetchDataQuestions(completion:@escaping completionHandleQuestion) {
+        guard let jsonPath = Bundle.main.path(forResource: "question_type_1", ofType: "json") else {
+            let jsonNotFoundError = NSError(domain: "client error", code: 404, userInfo: [NSLocalizedDescriptionKey:"JSON file not found!"])
+            return completion(nil,jsonNotFoundError)
+        }
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: jsonPath),options:.mappedIfSafe)
+            let response = try JSONDecoder().decode([Question_1].self, from: data)
+            print("Response:",response)
+            completion(response,nil)
+        }catch let err as NSError {
+            completion(nil,err)
+        }
+    }
+    
+    
     
 
 }

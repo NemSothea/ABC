@@ -17,6 +17,9 @@ class ReadingCell: UITableViewCell {
     @IBOutlet weak var answerKey_3: UIButton!
     @IBOutlet weak var answerKey_4: UIButton!
     
+    @IBOutlet var shareButtons: [UIButton]!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
