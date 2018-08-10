@@ -16,9 +16,6 @@ class ReadingVC: UIViewController {
         super.viewDidLoad()
     }
     
-    
-
-    
 }
 extension ReadingVC: UITableViewDataSource,UITableViewDelegate {
     
@@ -27,9 +24,12 @@ extension ReadingVC: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = myTableView.dequeueReusableCell(withIdentifier: "ReadingCell") as? ReadingCell else {return UITableViewCell()}
         
-        return cell
+            guard let cell = myTableView.dequeueReusableCell(withIdentifier: "ReadingCellOne") as? ReadingCell else {return UITableViewCell()}
+            
+            return cell
+        
+       
     }
     
     
